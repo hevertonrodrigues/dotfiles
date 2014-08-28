@@ -114,7 +114,25 @@ alias guard='bundle exec guard'
 alias cap='bundle exec cap'
 alias migrate='bundle exec rake db:migrate db:test:prepare'
 
+alias rmd="sudo rm -rf"
+
 ########################################### Functions ############################################
+
+
+sites(){
+  cd "/Users/$USER/Workspace/Sites/$*"
+}
+
+ios(){
+  cd "/Users/$USER/Workspace/iOS/$*"
+}
+
+android(){
+  cd "/Users/$USER/Workspace/Android/$*"
+}
+
+
+
 
 function npmls(){
   npm ls --depth=0 "$@" 2>/dev/null
@@ -258,3 +276,8 @@ custom_prompt(){
 }
 
 precmd() { custom_prompt; set_rails_alias }
+precmd() { custom_prompt }
+# alias to hidden files
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+alias reload='source ~/.zshrc'
