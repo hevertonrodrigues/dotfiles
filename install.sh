@@ -35,7 +35,7 @@ installApp(){
   brew install $*
 }
 
-echo -ne "${BLUE}You wanna install all apps ${RED}[yN]: ${GREEN}"
+echo -ne "${BLUE}You wanna install all apps ${RED}[y/N]: ${GREEN}"
 read -n1 all
 vAll=$(echo $all | tr '[:upper:]' '[:lower:]')
 echo -e "\n";
@@ -47,7 +47,7 @@ do
   else
     viewText=$(echo $i | tr '[:lower:]' '[:upper:]')
 
-    echo -ne "${BLUE}You wanna install:${WHITE} $viewText ${RED}[yN]: ${GREEN}"
+    echo -ne "${BLUE}You wanna install:${WHITE} $viewText ${RED}[y/N]: ${GREEN}"
     read -n1 response
     echo -e "\n";
     value=$(echo $response | tr '[:upper:]' '[:lower:]')
