@@ -21,10 +21,6 @@ for file in *; do
   ln -s ~/.dotfiles/files/$file ~/.$file
 done
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-  ~/.dotfiles/.osx
-fi
-
 echo -e "${GRAY}Installing Homebrew..."
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 
@@ -62,6 +58,12 @@ echo -e "${GRAY}Installing iTerm2..."
 wget https://iterm2.com/downloads/stable/iTerm2_v2_0.zip -P ~/Downloads/
 unzip ~/Downloads/iTerm2_v2_0.zip -d ~/Applications/
 rm -f ~/Downloads/iTerm2_v2_0.zip
+
+
+#custom mac preferences
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  ~/.dotfiles/.osx
+fi
 
 
 echo -ne "\n${GREEN}Done! :-)${NO_COLOR}\n\n"
