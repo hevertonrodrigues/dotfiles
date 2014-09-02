@@ -9,7 +9,7 @@ GRAY="\033[1;30m"
 
 
 #apps instalados com homebrew
-APPS=(wget git ack ant autoconf automake cask cowsay cscope ctags emacs mongodb mysql node openssl sqlite postgresql funcoeszz)
+APPS=(wget git ack ant autoconf automake cask cowsay cscope ctags emacs mongodb mysql node openssl sqlite postgresql funcoeszz "macvim --with-cscope --with-lua --override-system-vim")
 
 echo -ne "\n${GREEN}Initializing...\n\n"
 echo -e "Creating backup + creating symlinks to new dotfiles..."
@@ -57,9 +57,11 @@ do
   fi
 done
 
-
-#brew install wget git ack ant autoconf automake cask cowsay cscope ctags emacs mongodb mysql node openssl sqlite postgresql
-#brew install macvim --with-cscope --with-lua --override-system-vim
+# Install iTerm2
+echo -e "${GRAY}Installing iTerm2..."
+wget https://iterm2.com/downloads/stable/iTerm2_v2_0.zip -P ~/Downloads/
+unzip ~/Downloads/iTerm2_v2_0.zip -d ~/Applications/
+rm -f ~/Downloads/iTerm2_v2_0.zip
 
 
 echo -ne "\n${GREEN}Done! :-)${NO_COLOR}\n\n"
