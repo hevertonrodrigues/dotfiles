@@ -29,47 +29,49 @@ for file in *; do
   ln -s ~/.dotfiles/files/$file ~/.$file
 done
 
-echo -e "${GRAY}Installing Homebrew..."
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-
-echo -e "Installing Homebrew applications"
-
-
-installApp(){
-  brew install $*
-}
-
-echo -ne "${BLUE}You wanna install all apps ${RED}[y/N]: ${GREEN}"
-read -n1 all
-vAll=$(echo $all | tr '[:upper:]' '[:lower:]')
-echo -e "\n";
-
-for i in "${APPS[@]}"
-do
-  if [ "$vAll" = "y" ]; then
-    installApp $i;
-  else
-    viewText=$(echo $i | tr '[:lower:]' '[:upper:]')
-
-    echo -ne "${BLUE}You wanna install:${WHITE} $viewText ${RED}[y/N]: ${GREEN}"
-    read -n1 response
-    echo -e "\n";
-    value=$(echo $response | tr '[:upper:]' '[:lower:]')
-    if [ "$value" = 'y' ]; then
-      installApp $i;
-    fi
-  fi
-done
-
-# Install iTerm2
-echo -e "${GRAY}Installing iTerm2..."
-wget https://iterm2.com/downloads/stable/iTerm2_v2_0.zip -P ~/Downloads/
-unzip ~/Downloads/iTerm2_v2_0.zip -d ~/Applications/
-rm -f ~/Downloads/iTerm2_v2_0.zip
-
 
 #custom mac preferences
 if [[ "$OSTYPE" == "darwin"* ]]; then
+
+  echo -e "${GRAY}Installing Homebrew..."
+  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+
+  echo -e "Installing Homebrew applications"
+
+
+  installApp(){
+    brew install $*
+  }
+
+  echo -ne "${BLUE}You wanna install all apps ${RED}[y/N]: ${GREEN}"
+  read -n1 all
+  vAll=$(echo $all | tr '[:upper:]' '[:lower:]')
+  echo -e "\n";
+
+  for i in "${APPS[@]}"
+  do
+    if [ "$vAll" = "y" ]; then
+      installApp $i;
+    else
+      viewText=$(echo $i | tr '[:lower:]' '[:upper:]')
+
+      echo -ne "${BLUE}You wanna install:${WHITE} $viewText ${RED}[y/N]: ${GREEN}"
+      read -n1 response
+      echo -e "\n";
+      value=$(echo $response | tr '[:upper:]' '[:lower:]')
+      if [ "$value" = 'y' ]; then
+        installApp $i;
+      fi
+    fi
+  done
+
+  # Install iTerm2
+  echo -e "${GRAY}Installing iTerm2..."
+  wget https://iterm2.com/downloads/stable/iTerm2_v2_0.zip -P ~/Downloads/
+  unzip ~/Downloads/iTerm2_v2_0.zip -d /Applications/
+  rm -f ~/Downloads/iTerm2_v2_0.zip
+
+
   ~/.dotfiles/.osx
 fi
 
