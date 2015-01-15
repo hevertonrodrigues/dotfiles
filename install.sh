@@ -73,7 +73,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   rm -f ~/Downloads/iTerm2_v2_0.zip
 
 
-  ~/.dotfiles/.osx
+  #~/.dotfiles/.osx
 fi
 
 
