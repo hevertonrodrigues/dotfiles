@@ -1,6 +1,6 @@
 [user]
 	name = Heverton Rodrigues
-	email = heverton25@gmail.com
+	email = heverton@slideworks.cc
 [diff]
   color = auto
 [alias]
@@ -29,3 +29,13 @@
   default = simple
 [color]
   interactive = true
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

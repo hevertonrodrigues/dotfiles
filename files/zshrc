@@ -119,20 +119,63 @@ alias rmd="sudo rm -rf"
 
 ########################################### Functions ############################################
 
+tdi(){
+  cd "/Volumes/Workspace/TDI/$*"
+}
 
 sites(){
-  cd "/Users/$USER/Workspace/Sites/$*"
+  cd "/Volumes/Workspace/Sites/$*"
 }
 
 ios(){
-  cd "/Users/$USER/Workspace/iOS/$*"
+  cd "/Volumes/Workspace/iOS/$*"
 }
 
-android(){
-  cd "/Users/$USER/Workspace/Android/$*"
+droid(){
+  cd "/Volumes/Workspace/Android/$*"
+}
+
+alias clearxcode='rm -rf ~/Library/Developer/Xcode/DerivedData/*'
+
+generatePemCert(){
+  NAME=$(echo $1 | cut -d "." -f1)
+  #TYPE=$(echo $1 | cut -d "." -f2)
+
+  #if [ "$TYPE" == "cer" ]; then
+    openssl x509 -in $1 -inform der -out "_CERT_$NAME.pem"
+    echo "Done :)"
+  #else
+  #  echo "Select a .cer file"
+  #fi
+}
+
+generatePemKey(){
+  NAME=$(echo $1 | cut -d "." -f1)
+  #TYPE=$(echo $1 | cut -d "." -f2)
+
+  #if [ "$TYPE" == "p12" ]; then
+    openssl pkcs12 -nocerts -out "_KEY_$NAME.pem" -in $1
+    echo "Done :)"
+  #else
+  #  echo "Select a .p12 file"
+  #fi
+}
+
+generatePem(){
+  NAME=$(echo $1 | cut -d "." -f1)
+  openssl pkcs12 -in $1 -out "$NAME.pem" -nodes -clcerts
+  echo "Done :)"
+}
+
+unshorter(){
+  /Volumes/Workspace/Shared/Shell/unshorter.sh $1
 }
 
 
+
+################### FAST GADOL ###################
+
+alias fgreport="/Volumes/Workspace/Sites/fastgadol/reports/sales.sh"
 
 
 function npmls(){
@@ -165,7 +208,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   }
 
   # http://br-mac.org/2013/07/fcd-um-atalho-para-mudar-o-diretorio-corrente-do-terminal-para-a-pasta-aberta-no-finder.html
-  fcd(){
+  of(){
     pFinder=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
     [ -n "$pFinder" ] && cd "$pFinder"
   pwd
