@@ -75,8 +75,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
 
   echo -e "${GRAY}Customizing AppleScript..."
-  echo $(sudo chmod +x files/macos)
-  echo $(sudo files/macos)
+  echo $(sudo chmod +x ~/.dotfiles/files/macos)
+  echo $(sudo ~/.dotfiles/files/macos)
 
 
   #~/.dotfiles/.osx
