@@ -9,7 +9,7 @@ GRAY="\033[1;30m"
 
 
 #apps instalados com homebrew
-APPS=(wget git ack ant autoconf automake cask cowsay cscope ctags emacs mongodb mysql node openssl sqlite postgresql funcoeszz "macvim --with-cscope --with-lua --override-system-vim")
+APPS=(wget git ack ant autoconf automake cask cowsay cscope ctags emacs mongodb mysql node openssl sqlite postgresql funcoeszz "macvim --with-lua --with-override-system-vim")
 
 
 
