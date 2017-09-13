@@ -36,7 +36,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
   echo -e "${GRAY}Installing Homebrew..."
   #ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  
+
   echo -e "Installing Homebrew applications"
 
 
@@ -68,9 +68,14 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
   # Install iTerm2
   echo -e "${GRAY}Installing iTerm2..."
-  wget https://iterm2.com/downloads/stable/iTerm2_v2_0.zip -P ~/Downloads/
-  unzip ~/Downloads/iTerm2_v2_0.zip -d /Applications/
-  rm -f ~/Downloads/iTerm2_v2_0.zip
+  wget https://iterm2.com/downloads/stable/iTerm2-3_0_15.zip -P ~/Downloads/
+  unzip ~/Downloads/iTerm2-3_0_15.zip -d /Applications/
+  rm -f ~/Downloads/iTerm2-3_0_15.zip
+
+
+  echo -e "${GRAY}Customizing AppleScript..."
+  echo $(sudo chmod +x files/macos)
+  echo $(sudo files/macos)
 
 
   #~/.dotfiles/.osx
