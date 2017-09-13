@@ -17,7 +17,8 @@ echo -ne "\n${GREEN}Initializing...\n\n"
 
 echo -e "Installing Oh My ZSH"
 
-curl -L http://install.ohmyz.sh | sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 
 
 echo -e "Creating backup + creating symlinks to new dotfiles..."
@@ -35,7 +36,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
   echo -e "${GRAY}Installing Homebrew..."
   #ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
   echo -e "Installing Homebrew applications"
 
