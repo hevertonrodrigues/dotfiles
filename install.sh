@@ -17,7 +17,7 @@ echo -ne "\n${GREEN}Initializing...\n\n"
 
 echo -e "Installing Oh My ZSH"
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 
 
@@ -69,15 +69,14 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
   # Install iTerm2
   echo -e "${GRAY}Installing iTerm2..."
-  wget https://iterm2.com/downloads/stable/iTerm2-3_0_15.zip -P ~/Downloads/
-  unzip ~/Downloads/iTerm2-3_0_15.zip -d /Applications/
-  rm -f ~/Downloads/iTerm2-3_0_15.zip
+  wget https://iterm2.com/downloads/stable/iTerm2-3_1_5.zip -P ~/Downloads/
+  unzip ~/Downloads/iTerm2-3_1_15.zip -d /Applications/
+  rm -f ~/Downloads/iTerm2-3_1_15.zip
 
 
-  echo -e "${GRAY}Customizing AppleScript..."
-  echo $(sudo chmod +x ~/.dotfiles/files/macos)
-  echo $(sudo ~/.dotfiles/files/macos)
-
+  #echo -e "${GRAY}Customizing AppleScript..."
+  #echo $(sudo chmod +x ~/.dotfiles/files/macos)
+  #echo $(sudo ~/.dotfiles/files/macos)
 
   #~/.dotfiles/.osx
 fi
